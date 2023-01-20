@@ -1,5 +1,8 @@
 import * as sinon from 'sinon';
 import * as chai from 'chai';
+
+import LoginServices from '../services/LoginServices';
+
 // @ts-ignore
 import chaiHttp = require('chai-http');
 
@@ -12,11 +15,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Seu teste', () => {
-  /**
-   * Exemplo do uso de stubs com tipos
-   */
-
+describe('Testa services de login', () => {
   // let chaiHttpResponse: Response;
 
   // before(async () => {
@@ -31,13 +30,12 @@ describe('Seu teste', () => {
   //   (Example.findOne as sinon.SinonStub).restore();
   // })
 
-  // it('...', async () => {
-  //   chaiHttpResponse = await chai
-  //      .request(app)
-  //      ...
+  it('Testa se existe uma classe LoginServices', async () => {
+    const loginService = new LoginServices();
 
-  //   expect(...)
-  // });
+    expect(loginService).to.be.instanceOf(LoginServices);
+
+  });
 
   it('Seu sub-teste', () => {
     expect(false).to.be.eq(true);
