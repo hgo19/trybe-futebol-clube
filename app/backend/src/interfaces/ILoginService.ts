@@ -1,8 +1,8 @@
-type loginReturn = {
-  token: string,
+export type LoginType = {
+  email: string,
+  password: string;
 };
 
-export default interface ILoginService<T> {
-  getByEmail(token: string): Promise<T>;
-  validateLogin(): loginReturn;
+export interface ILoginService {
+  validateUser(token: LoginType): Promise<string>;
 }
