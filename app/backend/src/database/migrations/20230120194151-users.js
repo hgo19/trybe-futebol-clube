@@ -8,29 +8,33 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        field: 'id',
       },
-      displayName: {
+      username: {
         allowNull: false,
         type: Sequelize.STRING,
-        field: 'display_name',
+        field: 'username',
+      },
+      role: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        field: 'role',
       },
       email: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-      password: {
         allowNull: false,
         type: Sequelize.STRING,
+        field: 'email',
       },
-      image: {
+      password: {
         allowNull: true,
         type: Sequelize.STRING,
+        field: 'password',
       }
 
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface, _Sequelize) => {
      await queryInterface.dropTable('users');
   }
 };
