@@ -3,7 +3,6 @@ import IUser from './IUser';
 type whereObject = {
   where: {
     email: string,
-    password: string
   }
 };
 
@@ -12,5 +11,5 @@ export default interface IUserPersistence {
 }
 
 export interface IUserRepository {
-  findOne(email: string, password: string): Promise<IUser>
+  findOne(email: string): Promise<IUser>
 }
