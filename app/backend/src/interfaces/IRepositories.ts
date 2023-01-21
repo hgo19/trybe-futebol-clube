@@ -9,3 +9,7 @@ type whereObject = {
 export default interface IUserPersistence {
   findOne(param: whereObject): Promise<IUser>;
 }
+
+export interface IUserRepository {
+  findOne(email: string): Promise<IUser>
+}

@@ -1,6 +1,6 @@
-import IUserPersistence from '../interfaces/IRepositories';
+import IUserPersistence, { IUserRepository } from '../interfaces/IRepositories';
 
-export default class UserRepository {
+export default class UserRepository implements IUserRepository {
   constructor(private persistence: IUserPersistence) { }
 
   async findOne(email: string) {
@@ -10,7 +10,6 @@ export default class UserRepository {
       },
     };
     const user = await this.persistence.findOne(findOneParam);
-
     return user;
   }
 }
