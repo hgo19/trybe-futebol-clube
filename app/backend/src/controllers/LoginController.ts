@@ -6,7 +6,8 @@ export default class LoginController {
 
   login = async (req: Request, res: Response) => {
     const loginPayload = req.body;
-    const checkLogin = this._userService.validateUser(loginPayload);
+    const checkLogin = await this._userService.validateUser(loginPayload);
+
     res.status(200).json({ token: checkLogin });
   };
 }

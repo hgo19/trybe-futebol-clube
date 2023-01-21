@@ -1,8 +1,5 @@
 import * as sinon from 'sinon';
 import * as chai from 'chai';
-
-import LoginServices from '../services/LoginServices';
-
 // @ts-ignore
 import chaiHttp = require('chai-http');
 
@@ -15,26 +12,33 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Testa services de login', () => {
-  // let chaiHttpResponse: Response;
+describe('Seu teste', () => {
+  /**
+   * Exemplo do uso de stubs com tipos
+   */
 
-  // before(async () => {
-  //   sinon
-  //     .stub(Example, "findOne")
-  //     .resolves({
-  //       ...<Seu mock>
-  //     } as Example);
-  // });
+  let chaiHttpResponse: Response;
 
-  // after(()=>{
-  //   (Example.findOne as sinon.SinonStub).restore();
-  // })
+  before(async () => {
+    sinon
+      .stub(Example, "findOne")
+      .resolves({
+        ...<Seu mock>
+      } as Example);
+  });
 
-  it('Testa se existe uma classe LoginServices', async () => {
-    const loginService = new LoginServices();
+  after(()=>{
+    (Example.findOne as sinon.SinonStub).restore();
+  })
 
-    expect(loginService).to.be.instanceOf(LoginServices);
+  it('Testa Login em caso de sucesso.', async () => {
+    chaiHttpResponse = await chai
+       .request(app).post('/login').send({
+        email: 'hasuoidhu9i',
+        password: 'hjasiudhsa'
+       })
 
+    expect(chaiHttpResponse).to.have.statusCode(200);
   });
 
   it('Seu sub-teste', () => {

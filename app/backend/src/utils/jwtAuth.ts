@@ -8,10 +8,10 @@ export default class JwtAuth implements IAuthMethods {
     this._secret = process.env.JWT_SECRET || 'yourScretToken';
   }
 
-  public encodeToken(email: string): string {
+  public encodeToken(email: string, password: string): string {
     try {
-      const token = jwt.sign(email, this._secret, {
-        expiresIn: '5d',
+      const token = jwt.sign({ email, password }, this._secret, {
+        expiresIn: '1d',
         algorithm: 'HS256',
       });
 
