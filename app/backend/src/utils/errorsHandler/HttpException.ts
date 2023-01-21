@@ -1,16 +1,17 @@
 export default class HttpException extends Error {
-  private readonly _statusCode: number;
+  private _statusCode: number;
 
   constructor(message: string, statusCode: number) {
     super(message);
     this._statusCode = statusCode;
+    super.name = this.getErrName();
   }
 
   public get statusCode() {
     return this._statusCode;
   }
 
-  errStatusCode() {
+  private getErrName() {
     switch (this._statusCode) {
       case 400:
         return 'Bad Request';
@@ -27,12 +28,5 @@ export default class HttpException extends Error {
       default:
         return 'A big error happend';
     }
-  }
-
-  public errorType() {
-    const err = new Error(this.message);
-    err.name = this.errStatusCode();
-
-    throw err;
   }
 }
