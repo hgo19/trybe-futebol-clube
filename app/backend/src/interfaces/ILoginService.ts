@@ -4,5 +4,6 @@ export type LoginType = {
 };
 
 export interface ILoginService {
-  validateUser(token: LoginType): Promise<string>;
+  validateUserInDB(login: LoginType): Promise<void>;
+  login(login: LoginType): Promise<string>;
 }
