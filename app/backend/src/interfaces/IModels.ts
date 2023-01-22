@@ -5,3 +5,8 @@ export interface IUser {
   email: string;
   password: string;
 }
+
+export interface ITeam {
+  id?: number;
+  teamName: string;
+}
