@@ -10,4 +10,15 @@ export default class LoginValidations {
 
     throw new HttpException(message, 400);
   };
+
+  static verifyToken = async (req: Request, _res: Response, next: NextFunction) => {
+    const token = req.header('Authorization');
+    if (token) {
+      const { isError } = ValidationsInputs.validateToken(token);
+      if (!isError) {
+        return next();
+      }
+    }
+    throw new HttpException('Token not found', 401);
+  };
 }

@@ -1,9 +1,13 @@
 import { LoginType } from '../../interfaces/ILoginService';
-import { loginSchema } from './schemas';
+import { loginSchema, tokenSchema } from './schemas';
 
 type ValidationReturn = {
   isError: boolean,
   message: string
+};
+
+type ValidationTokenReturn = {
+  isError: boolean,
 };
 
 export default class ValidationsInputs {
@@ -16,5 +20,15 @@ export default class ValidationsInputs {
     }
 
     return { isError: false, message: 'Sem Erro.' };
+  }
+
+  static validateToken(token: string): ValidationTokenReturn {
+    const { error } = tokenSchema.validate(token);
+
+    if (error) {
+      return { isError: true };
+    }
+
+    return { isError: false };
   }
 }

@@ -18,3 +18,5 @@ export const loginSchema = Joi.object({
   email: emailSchema,
   password: passwordSchema,
 });
+
+export const tokenSchema = Joi.string().min(1).required();
