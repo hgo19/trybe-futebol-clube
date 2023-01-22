@@ -10,4 +10,12 @@ export default class LoginController {
 
     res.status(200).json({ token: checkLogin });
   };
+
+  loginValidate = async (req: Request, res: Response) => {
+    const token = req.header('Authorization');
+    if (token) {
+      const { role } = await this._userService.validateToken(token);
+      res.status(200).json({ role });
+    }
+  };
 }
