@@ -22,4 +22,14 @@ export default class LoginService implements ILoginService {
     const token = this._authMethods.encodeToken(login.email, login.password);
     return token;
   }
+
+  public async validateToken(token: string) {
+    const decodedInfos = this._authMethods.decodeToken(token);
+    await this.validateUserInDB(decodedInfos);
+
+    const { email } = decodedInfos;
+    const userInDB = await this._userPersistence.findOne(email);
+
+    return { role: userInDB.role };
+  }
 }

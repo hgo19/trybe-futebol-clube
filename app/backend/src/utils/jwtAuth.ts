@@ -1,5 +1,6 @@
 import * as jwt from 'jsonwebtoken';
-import IAuthMethods from '../interfaces/IAuthMethods';
+
+import IAuthMethods, { DecodeReturn } from '../interfaces/IAuthMethods';
 
 export default class JwtAuth implements IAuthMethods {
   private _secret: string;
@@ -22,9 +23,9 @@ export default class JwtAuth implements IAuthMethods {
     }
   }
 
-  public decodeToken(token: string): string {
+  public decodeToken(token: string): DecodeReturn {
     try {
-      const decoded = jwt.verify(token, this._secret) as string;
+      const decoded = jwt.verify(token, this._secret) as DecodeReturn;
       return decoded;
     } catch (error) {
       console.log(error);
