@@ -1,7 +1,7 @@
 import * as bcrypt from 'bcryptjs';
 
 import HttpException from '../utils/errorsHandler/HttpException';
-import { LoginType, ILoginService } from '../interfaces/ILoginService';
+import { LoginType, ILoginService, ValidateTokenReturn } from '../interfaces/ILoginService';
 import IAuthMethods from '../interfaces/IAuthMethods';
 import { IUserRepository } from '../interfaces/IRepositories';
 
@@ -23,7 +23,7 @@ export default class LoginService implements ILoginService {
     return token;
   }
 
-  public async validateToken(token: string) {
+  public async validateToken(token: string): Promise<ValidateTokenReturn> {
     const decodedInfos = this._authMethods.decodeToken(token);
     await this.validateUserInDB(decodedInfos);
 
