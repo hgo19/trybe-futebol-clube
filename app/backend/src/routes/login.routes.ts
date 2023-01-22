@@ -13,6 +13,17 @@ const repository = new UserRepository(User);
 const service = new LoginService(authMethods, repository);
 const controller = new LoginController(service);
 
-router.post('/', LoginValidations.validateLoginInputs, controller.login);
+router.post(
+  '/',
+  LoginValidations.validateLoginInputs,
+
+  controller.login,
+);
+router.get(
+  '/validate',
+  LoginValidations.verifyToken,
+
+  controller.loginValidate,
+);
 
 export default router;
