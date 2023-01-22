@@ -23,13 +23,13 @@ const userMock = {
 describe('Seu teste', () => {
   let chaiHttpResponse: Response;
 
-  before(async () => {
+  beforeEach(async () => {
     sinon
       .stub(User, "findOne")
       .resolves(userMock as User);
   });
 
-  after(()=>{
+  afterEach(()=>{
     (User.findOne as sinon.SinonStub).restore();
   })
 
