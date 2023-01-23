@@ -15,7 +15,7 @@ export default class LoginController {
     const token = req.header('Authorization');
     if (token) {
       const { role } = await this._userService.validateToken(token);
-      res.status(200).json({ role });
+      return res.status(200).json({ role });
     }
   };
 }
