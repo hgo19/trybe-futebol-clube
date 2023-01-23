@@ -1,4 +1,4 @@
-import { ITeam, IUser } from './IModels';
+import { IMatch, ITeam, IUser } from './IModels';
 
 // type whereEmail = {
 //   where: {
@@ -28,4 +28,8 @@ export interface IUserRepository {
 export interface ITeamRepository {
   getAll(): Promise<ITeam[]>;
   getById(id: string): Promise<ITeam | null>;
+}
+
+export interface IMatchRepository {
+  getAll(): Promise<IMatch[]>;
 }
