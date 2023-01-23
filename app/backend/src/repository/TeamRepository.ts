@@ -9,7 +9,7 @@ export default class TeamRepository implements ITeamRepository {
     return allTeams;
   }
 
-  async getById(id: number): Promise<ITeam> {
+  async getById(id: string): Promise<ITeam> {
     const whereId = {
       where: {
         id,

@@ -10,7 +10,7 @@ export default class TeamsService implements ITeamsService<ITeam> {
     return allTeams;
   }
 
-  async getById(id: number): Promise<ITeam> {
+  async getById(id: string): Promise<ITeam> {
     const team = await this._teamRepository.getById(id);
     return team;
   }

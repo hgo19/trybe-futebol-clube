@@ -11,5 +11,6 @@ const service = new TeamsService(repository);
 const controller = new TeamController(service);
 
 router.get('/', controller.getAll);
+router.get('/:id', controller.getById);
 
 export default router;

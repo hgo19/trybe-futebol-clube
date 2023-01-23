@@ -16,7 +16,7 @@ export interface IUserRepository {
 
 type whereId = {
   where: {
-    id: number,
+    id: string,
   }
 };
 
@@ -27,5 +27,5 @@ export interface ITeamPersistence {
 
 export interface ITeamRepository {
   getAll(): Promise<ITeam[]>;
-  getById(id: number): Promise<ITeam>;
+  getById(id: string): Promise<ITeam>;
 }
