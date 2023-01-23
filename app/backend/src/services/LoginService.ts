@@ -1,7 +1,7 @@
 import * as bcrypt from 'bcryptjs';
 
 import HttpException from '../utils/errorsHandler/HttpException';
-import { LoginType, ILoginService, ValidateTokenReturn } from '../interfaces/ILoginService';
+import { LoginType, ILoginService, ValidateTokenReturn } from '../interfaces/IServices';
 import IAuthMethods from '../interfaces/IAuthMethods';
 import { IUserRepository } from '../interfaces/IRepositories';
 

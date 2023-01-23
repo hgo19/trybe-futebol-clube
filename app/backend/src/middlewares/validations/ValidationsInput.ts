@@ -1,4 +1,4 @@
-import { LoginType } from '../../interfaces/ILoginService';
+import { LoginType } from '../../interfaces/IServices';
 import { loginSchema, tokenSchema } from './schemas';
 
 type ValidationReturn = {
