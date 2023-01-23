@@ -12,3 +12,7 @@ export interface ILoginService {
   login(login: LoginType): Promise<string>;
   validateToken(token: string): Promise<ValidateTokenReturn>
 }
+
+export interface ITeamsService<T> {
+  getAll(): Promise<T>;
+}

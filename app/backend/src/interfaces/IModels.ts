@@ -7,12 +7,12 @@ export interface IUser {
 }
 
 export interface ITeam {
-  id?: number;
+  id: number;
   teamName: string;
 }
 
 export interface IMatch {
-  id?: number;
+  id: number;
   homeTeamId: number;
   homeTeamGoals: number;
   awayTeamId: number;
