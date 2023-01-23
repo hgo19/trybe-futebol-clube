@@ -1,4 +1,4 @@
-import IUserPersistence, { IUserRepository } from '../interfaces/IRepositories';
+import { IUserRepository, IUserPersistence } from '../interfaces/IRepositories';
 
 export default class UserRepository implements IUserRepository {
   constructor(private persistence: IUserPersistence) { }
