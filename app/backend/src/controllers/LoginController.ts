@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ILoginService } from '../interfaces/ILoginService';
+import { ILoginService } from '../interfaces/IServices';
 
 export default class LoginController {
   constructor(private _userService: ILoginService) {}
