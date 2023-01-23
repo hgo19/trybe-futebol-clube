@@ -15,7 +15,7 @@ export interface IUserRepository {
 }
 
 export interface ITeamPersistence {
-  findAll(): Promise<ITeam[]>;
+  findAll(): Promise<any>;
 }
 
 export interface ITeamRepository {
