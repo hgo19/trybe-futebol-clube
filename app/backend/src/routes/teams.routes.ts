@@ -2,7 +2,7 @@ import { Router } from 'express';
 import TeamController from '../controllers/TeamController';
 import TeamsService from '../services/TeamsService';
 import Team from '../database/models/Team';
-import TeamRepository from '../repository/TeamRepository';
+import TeamRepository from '../repository/TeamSequelizeRepository';
 
 const router = Router();
 

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import LoginController from '../controllers/LoginController';
 import LoginService from '../services/LoginService';
 import JwtAuth from '../utils/jwtAuth';
-import UserRepository from '../repository/UserRepository';
+import UserRepository from '../repository/UserSequelizeRepository';
 import User from '../database/models/User';
 import LoginValidations from '../middlewares/LoginValidations';
 

@@ -30,6 +30,8 @@ export default class LoginService implements ILoginService {
     const { email } = decodedInfos;
     const userInDB = await this._userRepository.findOne(email);
 
+    if (!userInDB) throw new HttpException('Erro inesperado.', 500);
+
     return { role: userInDB.role };
   }
 }
