@@ -17,3 +17,7 @@ export interface ITeamsService<T> {
   getAll(): Promise<T[]>;
   getById(id: string): Promise<T>;
 }
+
+export interface IMatchesService<T> {
+  getAll(): Promise<T[]>;
+}
