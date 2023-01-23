@@ -9,4 +9,9 @@ export default class MatchesServices implements IMatchesService<IMatch> {
     const allMatches = await this._matchRepository.getAll();
     return allMatches;
   }
+
+  async getInProgressOrNoMatches(inProgress: string): Promise<IMatch[]> {
+    const matches = await this._matchRepository.getInProgressOrNoMatches(inProgress);
+    return matches;
+  }
 }

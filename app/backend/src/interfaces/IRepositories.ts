@@ -32,5 +32,5 @@ export interface ITeamRepository {
 
 export interface IMatchRepository {
   getAll(): Promise<IMatch[]>;
-  getInProgressOrNoMatches(inProgress: boolean): Promise<IMatch[]>;
+  getInProgressOrNoMatches(inProgress: string): Promise<IMatch[]>;
 }

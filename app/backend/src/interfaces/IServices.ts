@@ -20,4 +20,5 @@ export interface ITeamsService<T> {
 
 export interface IMatchesService<T> {
   getAll(): Promise<T[]>;
+  getInProgressOrNoMatches(inProgress: string): Promise<T[]>;
 }
