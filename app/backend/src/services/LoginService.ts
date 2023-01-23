@@ -6,11 +6,11 @@ import IAuthMethods from '../interfaces/IAuthMethods';
 import { IUserRepository } from '../interfaces/IRepositories';
 
 export default class LoginService implements ILoginService {
-  constructor(private _authMethods: IAuthMethods, private _userPersistence: IUserRepository) { }
+  constructor(private _authMethods: IAuthMethods, private _userRepository: IUserRepository) { }
 
   public async validateUserInDB(login: LoginType): Promise<void> {
     const { email, password } = login;
-    const userInDB = await this._userPersistence.findOne(email);
+    const userInDB = await this._userRepository.findOne(email);
     if (!userInDB) throw new HttpException('Incorrect email or password', 401);
 
     const comparePasswords = await bcrypt.compare(password, userInDB.password);
@@ -28,7 +28,7 @@ export default class LoginService implements ILoginService {
     await this.validateUserInDB(decodedInfos);
 
     const { email } = decodedInfos;
-    const userInDB = await this._userPersistence.findOne(email);
+    const userInDB = await this._userRepository.findOne(email);
 
     return { role: userInDB.role };
   }
