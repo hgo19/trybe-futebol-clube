@@ -9,8 +9,8 @@ export default class MatchSequelizeRepository implements IMatchRepository {
   async getAll(): Promise<IMatch[]> {
     const allMatches = await this._persistence.findAll({
       include: [
-        { model: Team, as: 'homeTeam' },
-        { model: Team, as: 'awayTeam' },
+        { model: Team, as: 'homeTeam', attributes: { exclude: ['id'] } },
+        { model: Team, as: 'awayTeam', attributes: { exclude: ['id'] } },
       ],
     });
     return allMatches;
