@@ -15,4 +15,5 @@ export interface ILoginService {
 
 export interface ITeamsService<T> {
   getAll(): Promise<T[]>;
+  getById(id: number): Promise<T>;
 }
