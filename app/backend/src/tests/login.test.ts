@@ -17,10 +17,10 @@ const userMock = {
   username: 'Test User',
   role: 'admin',
   email: 'test.user@test.com',
-  password: 'testuser13',
+  password: '$2a$08$Y8Abi8jXvsXyqm.rmp0B.uQBA5qUz7T6Ghlg/CvVr/gLxYj5UAZVO',
 }
 
-describe('Seu teste', () => {
+describe('Teste de integração da rota de login.', () => {
   let chaiHttpResponse: Response;
 
   beforeEach(async () => {
@@ -33,17 +33,44 @@ describe('Seu teste', () => {
     (User.findOne as sinon.SinonStub).restore();
   })
 
-  it('Testa Login em caso de sucesso.', async () => {
+  it('Testa resposta do login em caso de sucesso.', async () => {
     chaiHttpResponse = await chai
        .request(app).post('/login').send({
         email: 'test.user@test.com',
-        password: 'testuser13'
+        password: 'secret_user'
        })
 
-    expect(chaiHttpResponse).to.have.statusCode(200);
+    expect(chaiHttpResponse.status).to.have.equal(200);
+    // expect(chaiHttpResponse.body.message).to.be.a('string');
   });
 
-  it('Seu sub-teste', () => {
-    expect(false).to.be.eq(true);
+  it('Testa resposta do login em caso de falha ao passar senha diferente do banco de dados.', async () => {
+    chaiHttpResponse = await chai
+       .request(app).post('/login').send({
+        email: 'test.user@test.com',
+        password: 'adsadsad'
+       })
+
+    expect(chaiHttpResponse.status).to.have.equal(401);
+  });
+
+  it('Testa resposta do login em caso de falha ao não passar senha.', async () => {
+    chaiHttpResponse = await chai
+       .request(app).post('/login').send({
+        email: 'test.user@test.com',
+        password: ''
+       })
+
+    expect(chaiHttpResponse.status).to.have.equal(400);
+  });
+
+  it('Testa resposta do login em caso de falha ao não passar email.', async () => {
+    chaiHttpResponse = await chai
+       .request(app).post('/login').send({
+        email: '',
+        password: 'secret_user'
+       })
+
+    expect(chaiHttpResponse.status).to.have.equal(400);
   });
 });
