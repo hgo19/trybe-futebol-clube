@@ -36,4 +36,5 @@ export interface IMatchRepository {
   getById(id: string): Promise<IMatch>;
   getInProgressOrNoMatches(inProgress: boolean): Promise<IMatch[]>;
   insert(newMatch: IMatchBasic): Promise<IMatch>;
+  updateMatchProgress(id: string): Promise<[affectedCount: number]>;
 }

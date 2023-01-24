@@ -18,6 +18,12 @@ export default class MatchController {
   insert = async (req: Request, res: Response) => {
     const newMatch = req.body;
     const createdMatch = await this._matchService.insert(newMatch);
-    res.status(201).json(createdMatch);
+    return res.status(201).json(createdMatch);
+  };
+
+  finishMatch = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { message } = await this._matchService.finishMatchProgress(id);
+    return res.status(200).json(message);
   };
 }

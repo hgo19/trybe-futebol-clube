@@ -20,8 +20,13 @@ export interface ITeamsService<T> {
   getById(id: string): Promise<T>;
 }
 
+export type FinishedMatch = {
+  message: string,
+};
+
 export interface IMatchesService<T> {
   getAll(): Promise<T[]>;
   getInProgressOrNoMatches(inProgress: string): Promise<T[]>;
   insert(newMatch: IMatchBasic): Promise<T>;
+  finishMatchProgress(id: string): Promise<FinishedMatch>;
 }

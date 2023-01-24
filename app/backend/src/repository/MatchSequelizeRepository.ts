@@ -57,4 +57,9 @@ export default class MatchSequelizeRepository implements IMatchRepository {
 
     return createdMatch;
   }
+
+  async updateMatchProgress(id: string): Promise<[affectedCount: number]> {
+    const updatedMatch = await this._persistence.update({ inProgress: false }, { where: { id } });
+    return updatedMatch;
+  }
 }
