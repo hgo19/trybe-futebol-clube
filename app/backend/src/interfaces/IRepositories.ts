@@ -1,4 +1,4 @@
-import IMatchBasic from './IMatchBasic';
+import IMatchBasic, { IGoalsTeams } from './IBasics';
 import { IMatch, ITeam, IUser } from './IModels';
 
 // type whereEmail = {
@@ -37,4 +37,5 @@ export interface IMatchRepository {
   getInProgressOrNoMatches(inProgress: boolean): Promise<IMatch[]>;
   insert(newMatch: IMatchBasic): Promise<IMatch>;
   updateMatchProgress(id: string): Promise<[affectedCount: number]>;
+  updateMatchGoals(id: string, goals: IGoalsTeams): Promise<[affectedCount: number]>;
 }

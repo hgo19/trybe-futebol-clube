@@ -17,5 +17,6 @@ const controller = new MatchController(service, authMethods);
 router.get('/', controller.getAll);
 router.post('/', LoginValidations.verifyToken, controller.insert);
 router.patch('/:id/finish', LoginValidations.verifyToken, controller.finishMatch);
+router.patch('/:id', controller.updateGoals);
 
 export default router;

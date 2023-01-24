@@ -1,4 +1,4 @@
-import IMatchBasic from './IMatchBasic';
+import IMatchBasic, { IGoalsTeams } from './IBasics';
 
 export type LoginType = {
   email: string,
@@ -24,9 +24,14 @@ export type FinishedMatch = {
   message: string,
 };
 
+export type IGoal = {
+  message: string
+};
+
 export interface IMatchesService<T> {
   getAll(): Promise<T[]>;
   getInProgressOrNoMatches(inProgress: string): Promise<T[]>;
   insert(newMatch: IMatchBasic): Promise<T>;
   finishMatchProgress(id: string): Promise<FinishedMatch>;
+  updateMatchGoals(id: string, goals: IGoalsTeams): Promise<IGoal>;
 }

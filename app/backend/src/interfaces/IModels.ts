@@ -1,4 +1,4 @@
-import IMatchBasic from './IMatchBasic';
+import IMatchBasic from './IBasics';
 
 export interface IUser {
   id?: number;

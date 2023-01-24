@@ -1,8 +1,8 @@
 import HttpException from '../utils/errorsHandler/HttpException';
-import IMatchBasic from '../interfaces/IMatchBasic';
+import IMatchBasic, { IGoalsTeams } from '../interfaces/IBasics';
 import { IMatch } from '../interfaces/IModels';
 import { IMatchRepository, ITeamRepository } from '../interfaces/IRepositories';
-import { FinishedMatch, IMatchesService } from '../interfaces/IServices';
+import { FinishedMatch, IGoal, IMatchesService } from '../interfaces/IServices';
 
 export default class MatchesServices implements IMatchesService<IMatch> {
   constructor(
@@ -45,5 +45,14 @@ export default class MatchesServices implements IMatchesService<IMatch> {
     }
 
     return { message: 'Finished' };
+  }
+
+  async updateMatchGoals(id: string, goals: IGoalsTeams): Promise<IGoal> {
+    const updateGoals = await this._matchRepository.updateMatchGoals(id, goals);
+    if (!updateGoals) {
+      throw new HttpException('Erro ao atualizar gols da partida.', 400);
+    }
+
+    return { message: 'OLHUGOL!!' };
   }
 }
