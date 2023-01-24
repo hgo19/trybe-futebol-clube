@@ -2,6 +2,7 @@ import { Router } from 'express';
 import MatchController from '../controllers/MatchController';
 import MatchesServices from '../services/MatchesService';
 import MatchSequelizeRepository from '../repository/MatchSequelizeRepository';
+import LoginValidations from '../middlewares/LoginValidations';
 
 const router = Router();
 
@@ -10,6 +11,6 @@ const service = new MatchesServices(repository);
 const controller = new MatchController(service);
 
 router.get('/', controller.getAll);
-router.post('/', controller.insert);
+router.post('/', LoginValidations.verifyToken, controller.insert);
 
 export default router;
