@@ -52,6 +52,7 @@ export default class MatchSequelizeRepository implements IMatchRepository {
       awayTeamId,
       homeTeamGoals,
       awayTeamGoals,
+      inProgress: true,
     });
 
     return createdMatch;

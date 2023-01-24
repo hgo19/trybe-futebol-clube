@@ -1,3 +1,5 @@
+import IMatchBasic from './IMatchBasic';
+
 export type LoginType = {
   email: string,
   password: string;
@@ -21,4 +23,5 @@ export interface ITeamsService<T> {
 export interface IMatchesService<T> {
   getAll(): Promise<T[]>;
   getInProgressOrNoMatches(inProgress: string): Promise<T[]>;
+  insert(newMatch: IMatchBasic): Promise<T>;
 }
