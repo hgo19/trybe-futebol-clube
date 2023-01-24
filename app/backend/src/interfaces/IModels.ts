@@ -1,3 +1,5 @@
+import IMatchBasic from './IMatchBasic';
+
 export interface IUser {
   id?: number;
   username: string;
@@ -11,11 +13,7 @@ export interface ITeam {
   teamName: string;
 }
 
-export interface IMatch {
+export interface IMatch extends IMatchBasic{
   id: number;
-  homeTeamId: number;
-  homeTeamGoals: number;
-  awayTeamId: number;
-  awayTeamGoals: number;
   inProgress: boolean;
 }

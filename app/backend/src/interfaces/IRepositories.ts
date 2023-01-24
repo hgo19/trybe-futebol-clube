@@ -1,3 +1,4 @@
+import IMatchBasic from './IMatchBasic';
 import { IMatch, ITeam, IUser } from './IModels';
 
 // type whereEmail = {
@@ -32,5 +33,7 @@ export interface ITeamRepository {
 
 export interface IMatchRepository {
   getAll(): Promise<IMatch[]>;
+  getById(id: string): Promise<IMatch>;
   getInProgressOrNoMatches(inProgress: boolean): Promise<IMatch[]>;
+  insert(newMatch: IMatchBasic): Promise<IMatch>;
 }
