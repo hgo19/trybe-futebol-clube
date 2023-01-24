@@ -16,7 +16,7 @@ export default class MatchSequelizeRepository implements IMatchRepository {
     return allMatches;
   }
 
-  async getInProgressOrNoMatches(inProgress: string): Promise<IMatch[]> {
+  async getInProgressOrNoMatches(inProgress: boolean): Promise<IMatch[]> {
     const inProgressMatches = await this._persistence.findAll({
       where: {
         inProgress,

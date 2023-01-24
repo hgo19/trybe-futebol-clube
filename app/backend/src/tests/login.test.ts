@@ -41,7 +41,6 @@ describe('Teste de integração da rota de login.', () => {
        })
 
     expect(chaiHttpResponse.status).to.have.equal(200);
-    // expect(chaiHttpResponse.body.message).to.be.a('string');
   });
 
   it('Testa resposta do login em caso de falha ao passar senha diferente do banco de dados.', async () => {

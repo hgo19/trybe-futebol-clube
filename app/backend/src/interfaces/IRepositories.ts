@@ -21,7 +21,7 @@ export interface IUserRepository {
 // };
 
 // export interface ITeamPersistence {
-//   findAll(): Promise<any>;
+//   findAll(): Promise<ITeam[]>;
 //   findOne(param: whereId): Promise<ITeam>;
 // }
 
@@ -32,5 +32,5 @@ export interface ITeamRepository {
 
 export interface IMatchRepository {
   getAll(): Promise<IMatch[]>;
-  getInProgressOrNoMatches(inProgress: string): Promise<IMatch[]>;
+  getInProgressOrNoMatches(inProgress: boolean): Promise<IMatch[]>;
 }
