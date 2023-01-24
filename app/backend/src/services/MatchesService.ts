@@ -19,6 +19,11 @@ export default class MatchesServices implements IMatchesService<IMatch> {
   }
 
   async insert(newMatch: IMatchBasic): Promise<IMatch> {
+    const { homeTeamId, awayTeamId } = newMatch;
+    if (homeTeamId === awayTeamId) {
+      throw new HttpException('It is not possible to create a match with two equal teams', 422);
+    }
+
     const createdMatch = await this._matchRepository.insert(newMatch);
     return createdMatch;
   }
