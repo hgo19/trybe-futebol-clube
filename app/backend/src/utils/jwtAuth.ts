@@ -1,6 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 
 import IAuthMethods, { DecodeReturn } from '../interfaces/IAuthMethods';
+import HttpException from './errorsHandler/HttpException';
 
 export default class JwtAuth implements IAuthMethods {
   private _secret: string;
@@ -29,7 +30,7 @@ export default class JwtAuth implements IAuthMethods {
       return decoded;
     } catch (error) {
       console.log(error);
-      throw new Error('Falha ao executar o método decodeToken.');
+      throw new HttpException('Token must be a valid token', 401);
     }
   }
 }

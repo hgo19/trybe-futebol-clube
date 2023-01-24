@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
+import IAuthMethods from '../interfaces/IAuthMethods';
 import { IMatch } from '../interfaces/IModels';
 import { IMatchesService } from '../interfaces/IServices';
 
 export default class MatchController {
-  constructor(private _matchService: IMatchesService<IMatch>) {}
+  constructor(private _matchService: IMatchesService<IMatch>, private _authMethods: IAuthMethods) {}
 
   getAll = async (req: Request, res: Response) => {
     const { inProgress } = req.query;
@@ -17,6 +18,10 @@ export default class MatchController {
 
   insert = async (req: Request, res: Response) => {
     const newMatch = req.body;
+    const token = req.header('Authorization');
+
+    if (token) await this._authMethods.decodeToken(token);
+
     const createdMatch = await this._matchService.insert(newMatch);
     return res.status(201).json(createdMatch);
   };

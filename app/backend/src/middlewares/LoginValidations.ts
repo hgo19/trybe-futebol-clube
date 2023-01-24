@@ -19,6 +19,6 @@ export default class LoginValidations {
         return next();
       }
     }
-    throw new HttpException('Token not found', 401);
+    throw new HttpException('Token not found.', 401);
   };
 }
