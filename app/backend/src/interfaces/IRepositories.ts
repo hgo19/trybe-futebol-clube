@@ -1,4 +1,4 @@
-import IMatchBasic, { IGoalsTeams } from './IBasics';
+import { IGoalsTeams, ILeaderboardBasic, IMatchBasic } from './IBasics';
 import { IMatch, ITeam, IUser } from './IModels';
 
 // type whereEmail = {
@@ -38,4 +38,8 @@ export interface IMatchRepository {
   insert(newMatch: IMatchBasic): Promise<IMatch>;
   updateMatchProgress(id: string): Promise<[affectedCount: number]>;
   updateMatchGoals(id: string, goals: IGoalsTeams): Promise<[affectedCount: number]>;
+}
+
+export interface ILeaderboardRepository {
+  getHomeLeaderboard(): Promise<ILeaderboardBasic[]>;
 }

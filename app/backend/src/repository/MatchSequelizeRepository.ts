@@ -3,7 +3,7 @@ import { IMatch } from '../interfaces/IModels';
 import Match from '../database/models/Match';
 import { IMatchRepository } from '../interfaces/IRepositories';
 import Team from '../database/models/Team';
-import IMatchBasic, { IGoalsTeams } from '../interfaces/IBasics';
+import { IGoalsTeams, IMatchBasic } from '../interfaces/IBasics';
 
 export default class MatchSequelizeRepository implements IMatchRepository {
   constructor(private _persistence = Match) { }
