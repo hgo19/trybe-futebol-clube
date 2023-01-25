@@ -1,5 +1,5 @@
 import HttpException from '../utils/errorsHandler/HttpException';
-import IMatchBasic, { IGoalsTeams } from '../interfaces/IBasics';
+import { IGoalsTeams, IMatchBasic } from '../interfaces/IBasics';
 import { IMatch } from '../interfaces/IModels';
 import { IMatchRepository, ITeamRepository } from '../interfaces/IRepositories';
 import { FinishedMatch, IGoal, IMatchesService } from '../interfaces/IServices';
