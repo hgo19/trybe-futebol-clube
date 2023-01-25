@@ -42,4 +42,5 @@ export interface IMatchRepository {
 
 export interface ILeaderboardRepository {
   getHomeLeaderboard(): Promise<ILeaderboardBasic[]>;
+  getAwayLeaderboard(): Promise<ILeaderboardBasic[]>;
 }

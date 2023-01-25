@@ -10,5 +10,6 @@ const service = new LeaderboardService(repository);
 const controller = new LeaderboardController(service);
 
 router.get('/home', controller.getHomeLeaderboard);
+router.get('/away', controller.getAwayLeaderboard);
 
 export default router;

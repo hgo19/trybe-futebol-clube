@@ -1,4 +1,4 @@
-import { IGoalsTeams, IMatchBasic } from './IBasics';
+import { IGoalsTeams, ILeaderboardBasic, ILeaderboardWithEfficiency, IMatchBasic } from './IBasics';
 
 export type LoginType = {
   email: string,
@@ -37,5 +37,7 @@ export interface IMatchesService<T> {
 }
 
 export interface ILeaderboardService<T> {
+  putEfficiency(leaderboard: ILeaderboardBasic[]): ILeaderboardWithEfficiency[];
   getHomeLeaderboard(): Promise<T[]>;
+  getAwayLeaderboard(): Promise<T[]>;
 }
