@@ -11,5 +11,6 @@ const controller = new LeaderboardController(service);
 
 router.get('/home', controller.getHomeLeaderboard);
 router.get('/away', controller.getAwayLeaderboard);
+router.get('/', controller.getFullLeaderboard);
 
 export default router;

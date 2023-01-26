@@ -40,4 +40,5 @@ export interface ILeaderboardService<T> {
   putEfficiency(leaderboard: ILeaderboardBasic[]): ILeaderboardWithEfficiency[];
   getHomeLeaderboard(): Promise<T[]>;
   getAwayLeaderboard(): Promise<T[]>;
+  getFullLeaderboard(): Promise<T[]>;
 }
