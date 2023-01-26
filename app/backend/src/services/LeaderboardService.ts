@@ -39,10 +39,10 @@ export default class LeaderboardService implements ILeaderboardService<ILeaderbo
     awayLeaderboard: ILeaderboardWithEfficiency[],
   ) => {
     const fullLeaderboard = homeLeaderboard.map((homeTeam) => {
-      const [newLeaderboard] = awayLeaderboard
+      const [awayTeamSummary] = awayLeaderboard
         .filter((awayTeam) => awayTeam.name === homeTeam.name);
 
-      return this.sumTeamOverallStats(newLeaderboard, homeTeam);
+      return this.sumTeamOverallStats(awayTeamSummary, homeTeam);
     });
     return fullLeaderboard;
   };
