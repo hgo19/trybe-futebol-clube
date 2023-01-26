@@ -47,34 +47,6 @@ export default class LeaderboardService implements ILeaderboardService<ILeaderbo
     return fullLeaderboard;
   };
 
-  // sortLeaderboard = (a: ILeaderboardWithEfficiency, b: ILeaderboardWithEfficiency) => {
-  //   if (a.totalPoints === b.totalPoints && a.goalsBalance > b.goalsBalance) {
-  //     return a.goalsBalance - b.goalsBalance;
-  //   }
-  //   if (a.totalPoints === b.totalPoints
-  //     && a.goalsBalance === b.goalsBalance
-  //     && a.goalsFavor > b.goalsFavor) {
-  //     return b.goalsFavor - a.goalsFavor;
-  //   }
-
-  //   if (a.totalPoints === b.totalPoints
-  //     && a.goalsBalance === b.goalsBalance
-  //     && a.goalsFavor === b.goalsFavor) {
-  //     return b.goalsOwn - a.goalsOwn;
-  //   }
-
-  //   return b.totalPoints - a.totalPoints;
-  // };
-
-  // sortLeaderboard = (
-  //   a: ILeaderboardWithEfficiency,
-  //   b: ILeaderboardWithEfficiency,
-  // ) => b.totalPoints - a.totalPoints
-  //   || b.totalVictories - a.totalVictories
-  //   || b.goalsBalance - a.goalsBalance
-  //   || b.goalsFavor - a.goalsFavor
-  //   || a.goalsOwn - b.goalsOwn;
-
   sortLeaderboard = (a: ILeaderboardWithEfficiency, b: ILeaderboardWithEfficiency) => {
     if (a.totalPoints < b.totalPoints) return 1;
     if (a.totalPoints > b.totalPoints) return -1;

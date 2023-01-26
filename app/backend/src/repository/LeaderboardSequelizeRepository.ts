@@ -5,7 +5,7 @@ import { ILeaderboardBasic } from '../interfaces/IBasics';
 import awayLeaderboardQuery from '../utils/sqlQueries/awayTeamLeaderboard';
 import homeLeaderboardQuery from '../utils/sqlQueries/homeTeamLeaderboard';
 
-export default class LeaderBoardSequelizeRepository implements ILeaderboardRepository {
+export default class LeaderboardSequelizeRepository implements ILeaderboardRepository {
   constructor(private _persistence = model) {}
 
   async getHomeLeaderboard() {
