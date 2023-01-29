@@ -19,7 +19,7 @@ export default class LoginService implements ILoginService {
 
   public async login(login: LoginType): Promise<string> {
     await this.validateUserInDB(login);
-    const token = this._authMethods.encodeToken(login.email, login.password);
+    const token = this._authMethods.encodeToken(login.email);
     return token;
   }
 

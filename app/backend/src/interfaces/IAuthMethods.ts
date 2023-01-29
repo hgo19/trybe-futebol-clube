@@ -4,6 +4,6 @@ export type DecodeReturn = {
 };
 
 export default interface IAuthMethods {
-  encodeToken(email: string, password: string): string;
+  encodeToken(email: string): string;
   decodeToken(token: string): DecodeReturn;
 }
