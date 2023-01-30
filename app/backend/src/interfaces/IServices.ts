@@ -1,4 +1,5 @@
 import { IGoalsTeams, ILeaderboardBasic, ILeaderboardWithEfficiency, IMatchBasic } from './IBasics';
+import { IUser } from './IModels';
 
 export type LoginType = {
   email: string,
@@ -10,7 +11,7 @@ export type ValidateTokenReturn = {
 };
 
 export interface ILoginService {
-  validateUserInDB(login: LoginType): Promise<void>;
+  validateUserInDB(login: LoginType): Promise<IUser>;
   login(login: LoginType): Promise<string>;
   validateToken(token: string): Promise<ValidateTokenReturn>
 }

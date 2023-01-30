@@ -1,9 +1,10 @@
 export type DecodeReturn = {
+  id: number,
   email: string,
-  password: string,
+  role: string,
 };
 
 export default interface IAuthMethods {
-  encodeToken(email: string, password: string): string;
+  encodeToken(id: number, email: string, role: string): string;
   decodeToken(token: string): DecodeReturn;
 }

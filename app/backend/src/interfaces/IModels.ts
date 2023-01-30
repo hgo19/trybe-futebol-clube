@@ -1,7 +1,7 @@
 import { IMatchBasic } from './IBasics';
 
 export interface IUser {
-  id?: number;
+  id: number;
   username: string;
   role: string;
   email: string;
