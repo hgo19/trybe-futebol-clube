@@ -59,7 +59,7 @@ export default class LeaderboardService implements ILeaderboardService<ILeaderbo
     if (a.goalsOwn < b.goalsOwn) return 1;
     if (a.goalsOwn > b.goalsOwn) return -1;
     return 0;
-  };
+  }; // EXEMPLO DE COMO FUNCIONA UM SORT DESDE O BÁSICO TENDO O PARAMETRO 'a' COMO FIXO E O 'b' COMO COMPARADOR
 
   async getHomeLeaderboard(): Promise<ILeaderboardWithEfficiency[]> {
     const leaderboard = await this._leaderboardRepository.getHomeLeaderboard();
