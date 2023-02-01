@@ -5,30 +5,19 @@ Site informativo sobre partidas e classificações de futebol.
 Nessa aplicação fui responsável pela parte de backend, desenvolver uma API e também integrar as aplicações, através do docker-compose, para que funcionem consumindo um banco de dados.
 
 ## Tecnologias Utilizadas
-- Docker
-- Node.js
-- Express.js
-- MySQL
-- Arquitetura MSC (Models, Services e Controllers)
-- Middlewares de erro
-- Typescript
-- Sequelize
-- JWT
-- Bcrypt
+
+
+<br />
+<br />
 
 ## Rodando a aplicação
-
-<details>
-  <summary><strong>🐳 Rodando a aplicação:</strong></summary>
-
-### Com Docker
 
 > **Antes de começar, seu docker-compose precisa estar na versão 1.29 ou superior. [Veja aqui](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt) ou [na documentação](https://docs.docker.com/compose/install/) como instalá-lo. No primeiro artigo, você pode substituir onde está com `1.26.0` por `1.29.2`.**
 
 1. Clone o repositório:
 
 ```bash
-git clone git@github.com:tryber/sd-023-b-trybe-futebol-clube.git
+git clone git@github.com:hgo19/trybe-futebol-clube.git
 ```
 
 2.  Instale as dependências na pasta raíz da aplicação:
@@ -48,14 +37,33 @@ npm run compose:up
 <br />
 <br />
 
-</details>
 
-<br />
-<br />
+# Backend Documentação:
 
-# Backend Rotas
+  <summary><strong>Tecnologias utilizadas:</strong></summary>
 
-<summary><strong>Na aplicação foram usados os seguintes endpoints: </strong></summary>
+Nesse projeto para construção do projeto foram usadas as seguintes tecnologias:
+
+- Docker
+- Node.js
+- Express.js
+- MySQL
+- Typescript
+- Sequelize
+- JWT
+- Bcrypt
+- Mocha
+
+Além disso, o código foi baseado em alguns príncipios de organização e de construção de código, como:
+
+- Arquitetura MSC (Models, Services e Controllers)
+- POO
+- SOLID
+
+<details>
+  <summary><strong>Rotas e retornos esperados do backend:</strong></summary>
+
+### Na aplicação foram usados os seguintes endpoints:
 <br />
 
 >**Alguns endpoints necessitam um TOKEN na sua requisição, o token é gerado a partir do endpoint POST /login e sempre que for necessário será informado na descrição do endpoint.**
@@ -317,6 +325,7 @@ A requisição responderá com um status `200` e o seguinte body:
 # Lidando com erros:
 
 - Todos endpoint necessitam que os body informados em cada rota sejam passados, e quanto necessário também o token. É presente no projeto uma middleware de erro responsável por lidar e tratar todos os erros. Essa middleware de erro funciona, na maior parte do tempo, alinhada ao Httpexception também criado na aplicação e presente na pasta app/backend/src/utils. Para maiores duvidas dê uma olhada no arquivo.
+</details>
 
+Backend desenvolvido por: [Hugo Leonardo](https://www.linkedin.com/in/hugo-leop/).
 
-Projeto desenvolvido por: [Hugo Leonardo](https://www.linkedin.com/in/hugo-leop/).
