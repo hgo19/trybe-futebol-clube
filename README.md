@@ -4,9 +4,6 @@
 Site informativo sobre partidas e classificações de futebol.
 Nessa aplicação fui responsável pela parte de backend, desenvolver uma API e também integrar as aplicações, através do docker-compose, para que funcionem consumindo um banco de dados.
 
-## Tecnologias Utilizadas
-
-
 <br />
 <br />
 
