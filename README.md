@@ -60,6 +60,9 @@ Além disso, o código foi baseado em alguns príncipios de organização e de c
 - POO
 - SOLID
 
+<br />
+<br />
+
 <details>
   <summary><strong>Rotas e retornos esperados do backend:</strong></summary>
 
@@ -329,3 +332,26 @@ A requisição responderá com um status `200` e o seguinte body:
 
 Backend desenvolvido por: [Hugo Leonardo](https://www.linkedin.com/in/hugo-leop/).
 
+# Front end documentação:
+<details>
+  <summary><strong>Usuários teste para login:</strong></summary>
+
+Quando estiver na tela de login há dois usuários para fazer o login e testar a aplicação.
+  Usuário de role normal:
+  ```json
+  {
+    "email": "user@user.com",
+    "password": "secret_user"
+  }
+  ```
+
+  Usuário de role admin:
+  ```json
+  {
+    "email": "admin@admin.com",
+    "password": "secret_admin"
+  }
+  ```
+</details>
+
+O front end da aplicação foi desenvolvido por: [Trybe](https://www.betrybe.com/)
