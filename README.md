@@ -351,4 +351,4 @@ Quando estiver na tela de login há dois usuários para fazer o login e testar a
   ```
 </details>
 
-O front end da aplicação foi desenvolvido por: [Trybe](https://www.betrybe.com/)
+O front end da aplicação foi desenvolvido por: [Trybe](https://www.betrybe.com/). Para mais curiosidades acesse ao diretório app/frontend, ou navegue na aplicação utilizando os dados de login citados acima, utilizando o endereço: http://localhost:3000 .
